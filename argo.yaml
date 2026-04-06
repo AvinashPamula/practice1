@@ -1,1 +1,27 @@
-
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: unknown
+  namespace: argocd # ArgoCD usually lives in its own namespace
+spec:
+  project: default
+  source:
+    # 1. Your Git Repository URL
+    repoURL: 'https://github.com/AvinashPamula/practice1.git'
+    targetRevision: HEAD
+    # 2. Path to the folder containing your Chart.yaml and values.yaml
+    path: My_first_DevOps_Project-main
+    helm:
+      # 3. Reference the values.yaml we built earlier
+      valueFiles:
+        - values.yaml
+  destination:
+    # 4. The destination GKE cluster and namespace
+    server: 'https://kubernetes.default.svc' # Points to the local cluster
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true    # Deletes resources if you remove them from Git
+      selfHeal: true # Re-deploys if someone manually changes K8s settings
+    syncOptions:
+      - CreateNamespace=true # Creates the 'default' namespace if it doesn't exist
