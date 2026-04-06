@@ -2,13 +2,11 @@ unknown:
   # Force name to 'my-app' so Ingress and Service match perfectly
   fullnameOverride: "unknown"
   replicaCount: 1
-
   # Image configuration for your Google Artifact Registry
   image:
     repository: us-east1-docker.pkg.dev/project-7bcd424e-3722-47b8-a8b/unknown
     pullPolicy: IfNotPresent
-    tag: "1.71"
-
+    tag: "1.24"
   # Gateway API settings (currently disabled as you are using GCE Ingress)
   httpRoute:
     enabled: false
@@ -20,20 +18,17 @@ unknown:
           - path:
               type: PathPrefix
               value: /
-
   autoscaling:
     enabled: false
     minReplicas: 1
     maxReplicas: 2
     targetCPUUtilizationPercentage: 80
-
   # Workload Identity configuration
   serviceAccount:
     create: true
     annotations:
       iam.gke.io/gcp-service-account: "my-app-sa@project-7bcd424e-3722-47b8-a8b.iam.gserviceaccount.com"
     name: ""
-
   # Service configuration with NEG enabled for GCE Ingress
   service:
     type: ClusterIP
@@ -41,7 +36,6 @@ unknown:
     targetPort: 3000
     annotations:
       cloud.google.com/neg: '{"ingress": true}'
-
   # Ingress configuration for Google Cloud Load Balancer
   ingress:
     enabled: true
@@ -49,8 +43,7 @@ unknown:
     annotations:
       traefik.ingress.kubernetes.io/router.entrypoints: web
       traefik.ingress.kubernetes.io/router.priority: "10"
-    
-    # Required for the GKE Internal Load Balancer to accept the traffic
+      # Required for the GKE Internal Load Balancer to accept the traffic
       kubernetes.io/ingress.allow-http: "true"
     hosts:
       - host: unknown.ahs.cloud.net
@@ -62,7 +55,6 @@ unknown:
                 name: unknown
                 port:
                   number: 80
-
   # Resource limits to prevent OOMKilled errors
   resources:
     limits:
