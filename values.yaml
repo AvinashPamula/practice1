@@ -33,7 +33,7 @@ unknown:
   service:
     type: ClusterIP
     port: 80
-    targetPort: 3000
+    targetPort: 9000
     annotations:
       cloud.google.com/neg: '{"ingress": true}'
   # Ingress configuration for Google Cloud Load Balancer
