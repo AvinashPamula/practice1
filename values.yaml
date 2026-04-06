@@ -53,13 +53,13 @@ unknown:
     # Required for the GKE Internal Load Balancer to accept the traffic
       kubernetes.io/ingress.allow-http: "true"
     hosts:
-      - host: my-app.ahs.cloud.net
+      - host: unknown.ahs.cloud.net
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: my-app
+                name: unknown
                 port:
                   number: 80
 
