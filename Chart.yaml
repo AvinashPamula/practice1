@@ -1,6 +1,6 @@
 apiVersion: v2
 dependencies:
-  - name: my-app
+  - name: unknown
     repository: oci://us-east1-docker.pkg.dev/project-7bcd424e-3722-47b8-a8b/unknown
     version: "0.71"
 description: auth-service application development
