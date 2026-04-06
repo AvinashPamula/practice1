@@ -10,7 +10,7 @@ spec:
     repoURL: 'https://github.com/AvinashPamula/practice1.git'
     targetRevision: HEAD
     # 2. Path to the folder containing your Chart.yaml and values.yaml
-    path: 
+    path: main
     helm:
       # 3. Reference the values.yaml we built earlier
       valueFiles:
