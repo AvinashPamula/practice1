@@ -4,7 +4,7 @@ metadata:
   name: unknown
   namespace: argocd # ArgoCD usually lives in its own namespace
 spec:
-  project: default
+  project: traefik
   source:
     # 1. Your Git Repository URL
     repoURL: 'https://github.com/AvinashPamula/practice1.git'
