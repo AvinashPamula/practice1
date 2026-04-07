@@ -12,7 +12,7 @@ unknown:
     enabled: false
     parentRefs:
       - name: gclb-gateway
-        namespace: default
+        namespace: traefik
     rules:
       - matches:
           - path:
