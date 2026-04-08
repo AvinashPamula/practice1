@@ -6,7 +6,7 @@ unknown:
   image:
     repository: us-east1-docker.pkg.dev/project-7bcd424e-3722-47b8-a8b/unknown/unknown
     pullPolicy: IfNotPresent
-    tag: "1.26"
+    tag: "1.28"
   # Gateway API settings (currently disabled as you are using GCE Ingress)
   httpRoute:
     enabled: false
@@ -35,7 +35,7 @@ unknown:
     port: 80
     targetPort: 9000
     annotations:
-      # cloud.google.com/neg: '{"ingress": true}'
+    # cloud.google.com/neg: '{"ingress": true}'
   # Ingress configuration for Google Cloud Load Balancer
   ingress:
     enabled: true
